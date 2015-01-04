@@ -54,7 +54,7 @@ get '/:category' do
 end
 
 get '/article/:title' do
-  @articles = blog.by_title(params[:title])
+  @article = blog.by_title(params[:title]).first
   erb :article
 end
 
