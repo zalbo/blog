@@ -1,11 +1,10 @@
-  <p class="text _text text-2">Progetti in corso e conclusi</p>
-
 
   <div class="container _container container-2 clearfix">
-    <p>articoli presenti: <%= @articles.count %></p>
+   
 
     <% @articles.each do |article| %>
-      <p><a href="/article/<%= article.title %>"><%= article.title %></a></p>
+      <p><%= article.title %></p>
+      <%= article.content %>
     <%end%>
 
   </div>

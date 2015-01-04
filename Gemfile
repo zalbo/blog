@@ -4,3 +4,4 @@ source "http://rubygems.org/"
 # declare the sinatra dependency
 gem "sinatra"
 gem "puma"
+gem 'github-markdown'

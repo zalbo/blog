@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
-
 require 'sinatra'
+require 'github/markdown'
+
 configure { set :server, :puma }
 
 class Article
@@ -14,12 +15,17 @@ class Article
   end
 end
 
+def load_articles
+  article = File.read("articles/multirotore.md")
+  GitHub::Markdown.to_html(article, :gfm)
+end
+
 class Blog
   attr_reader :articles
   def initialize
     @articles = []
-    add_article(Article.new("nuovo drone", "bla bla bla", "3d"))
-    add_article(Article.new("clone orologio", "bla bla bla", "design"))
+    add_article(Article.new("nuovo_drone", load_articles , "3d"))
+    add_article(Article.new("clone_orologio", "bla bla bla", "design"))
   end
 
   def add_article(article)
@@ -28,6 +34,10 @@ class Blog
 
   def by_category(category)
     @articles.select{|article| article.category == category}
+  end
+
+  def by_title(title)
+    @articles.select{|article| article.title == title}
   end
 end
 
@@ -42,5 +52,12 @@ get '/:category' do
   @articles = blog.by_category(params[:category])
   erb :index
 end
+
+get '/article/:title' do
+  @articles = blog.by_title(params[:title])
+  erb :article
+end
+
+
 
 
