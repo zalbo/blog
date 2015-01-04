@@ -1,4 +1,17 @@
   <p class="text _text text-2">Progetti in corso e conclusi</p>
+
+
+  <div class="container _container container-2 clearfix">
+    <p>articoli presenti: <%= @articles.count %></p>
+
+    <% @articles.each do |article| %>
+      <p><%= article.title %></p>
+    <%end%>
+
+  </div>
+ 
+
+<!--
   <div class="container _container container-2 clearfix">
     <div class="container _element container-3"></div>
     <div class="container _element container-4"></div>
@@ -9,3 +22,4 @@
     <div class="container _element container-9"></div>
     <div class="container container-10"></div>
   </div>
+-->
