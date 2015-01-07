@@ -15,7 +15,10 @@ class Article
   end
 end
 
+
+
 def load_articles
+	
   article = File.read("articles/multirotore.md")
   GitHub::Markdown.to_html(article, :gfm)
 end
@@ -58,6 +61,5 @@ get '/article/:title' do
   erb :article
 end
 
-
-
+puts "#{@articles}"
 
