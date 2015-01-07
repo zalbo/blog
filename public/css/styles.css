@@ -76,7 +76,7 @@ header p {
   z-index: 19;
   width: 25%;
   height: 291px;
-  background-image: url('../images/img2.jpg');
+  background-image: url('/images/img2.jpg');
   background-repeat: no-repeat;
   background-position: left top;
 }
@@ -88,7 +88,7 @@ header p {
 
 .container-3 {
   z-index: 12;
-  background-image: url('../images/img1.jpg');
+  background-image: url('/images/img1.jpg');
 }
 
 .container-3:hover {
@@ -98,7 +98,7 @@ header p {
 
 .container-4 {
   z-index: 13;
-  background-image: url('../images/img2.jpg');
+  background-image: url('/images/img2.jpg');
 }
 
 .container-4:hover {
@@ -107,7 +107,7 @@ header p {
 
 .container-5 {
   z-index: 14;
-  background-image: url('../images/img3.jpg');
+  background-image: url('/images/img3.jpg');
 }
 
 .container-6 {
@@ -116,7 +116,7 @@ header p {
   z-index: 15;
   width: 25%;
   height: 291px;
-  background-image: url('../images/img2.jpg');
+  background-image: url('/images/img2.jpg');
   background-repeat: no-repeat;
   background-position: left top;
 }
@@ -124,17 +124,17 @@ header p {
 .container-7 {
   clear: both;
   z-index: 16;
-  background-image: url('../images/img1.jpg');
+  background-image: url('/images/img1.jpg');
 }
 
 .container-8 {
   z-index: 17;
-  background-image: url('../images/img2.jpg');
+  background-image: url('/images/img2.jpg');
 }
 
 .container-9 {
   z-index: 18;
-  background-image: url('../images/img3.jpg');
+  background-image: url('/images/img3.jpg');
 }
 
 .text-1 {
@@ -161,7 +161,7 @@ header p {
 ._container-1 {
   float: left;
   height: 492px;
-  background-image: url('../images/DSCF1245.jpg');
+  background-image: url('/images/DSCF1245.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
