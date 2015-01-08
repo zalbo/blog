@@ -7,12 +7,13 @@ require 'pry'
 configure { set :server, :puma }
 
 class Article
-  attr_reader :title, :content, :category
+  attr_reader :title, :content, :category, :better_title
 
   def initialize(title, content, category)
-    @title    = title 
+    @title    = title.gsub(".md", "")
     @content  = content
     @category = category
+    @better_title = title.gsub(".md", "").gsub("-"," ").upcase
   end
 end
 
@@ -23,16 +24,12 @@ class Blog
     load_articles
   end
 
-  def add_article(article)
-     @articles << article
-  end
-
   def by_category(category)
     @articles.select{|article| article.category == category}
   end
 
-  def by_title(title)
-    @articles.select{|article| article.title == title}
+  def find_by_title(title)
+    @articles.select{|article| article.title == title}.first
   end
 
   def load_articles
@@ -42,7 +39,7 @@ class Blog
       articles.each do |article|
         content = File.read("articles/#{category}/#{article}")
         content_html = GitHub::Markdown.to_html(content, :gfm)
-        add_article(Article.new(article, content_html , category))
+        @articles << Article.new(article, content_html , category)
       end
     end
   end
@@ -63,10 +60,6 @@ get '/:category' do
 end
 
 get '/article/:title' do
-  @article = blog.by_title(params[:title]).first
+  @article = blog.find_by_title(params[:title])
   erb :article
 end
-
-
-
-#"#{article.title}".delete ".md" 
