@@ -5,7 +5,7 @@
     <p>articoli presenti: <%= @articles.count %></p>
 
     <% @articles.each do |article| %>
-      <p><a href="/article/<%= article.title %>"><%= article.title %></a></p>
+      <p><a href="/article/<%= article.title %>"><%= article.title.delete ".md" %></a></p>
     <%end%>
 
   </div>

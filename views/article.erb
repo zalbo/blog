@@ -1,4 +1,4 @@
   <div class="container _container container-2 clearfix">
-      <p><%= @article.title %></p>
+      <p><%= @article.title.delete ".md"  %></p>
       <%= @article.content %>
   </div>

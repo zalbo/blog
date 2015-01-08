@@ -10,7 +10,7 @@ class Article
   attr_reader :title, :content, :category
 
   def initialize(title, content, category)
-    @title    = title
+    @title    = title 
     @content  = content
     @category = category
   end
@@ -24,7 +24,7 @@ class Blog
   end
 
   def add_article(article)
-    @articles << article
+     @articles << article
   end
 
   def by_category(category)
@@ -48,6 +48,8 @@ class Blog
   end
 end
 
+
+
 blog = Blog.new
 
 get '/' do
@@ -64,3 +66,7 @@ get '/article/:title' do
   @article = blog.by_title(params[:title]).first
   erb :article
 end
+
+
+
+#"#{article.title}".delete ".md" 
