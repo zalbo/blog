@@ -24,11 +24,11 @@ class Blog
     load_articles
   end
 
-  def by_category(category)
+  def all_by_category(category)
     @articles.select{|article| article.category == category}
   end
 
-  def find_by_title(title)
+  def first_by_title(title)
     @articles.select{|article| article.title == title}.first
   end
 
@@ -51,15 +51,20 @@ blog = Blog.new
 
 get '/' do
   @articles = blog.articles
+  @top_image = "DSCF1245"
   erb :index
 end
 
 get '/:category' do
-  @articles = blog.by_category(params[:category])
+  @articles = blog.all_by_category(params[:category])
+  if params[:category] == "3d"
+    @top_image = "3d"
+  end
   erb :index
 end
 
 get '/article/:title' do
-  @article = blog.find_by_title(params[:title])
+  @article = blog.first_by_title(params[:title])
+  @top_image = params[:title]
   erb :article
 end

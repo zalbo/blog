@@ -9,11 +9,25 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="body page-index clearfix">
-  <header class="_container _container-1 clearfix">
+  <header class="_container _container-1 clearfix" style="background-image: url('/images/<%= @top_image %>.jpg')">
     <img class="image image-1" src="/images/logo-02(2).svg">
     <div class="text _text text-1">
+
+      <% if @article %>
+
+      <p><%= @article.better_title  %></p>
+
+      <% else %>
+
       <p>"Devi tenere vivo il bambino che è in te:&nbsp;senza di lui non si può creare"</p>
       <p><span>Joni Mitchell</span><br></p>
+
+
+      <% end %>
+
+
+
+
 </div>
   </header>
   <ul class="menu">
