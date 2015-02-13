@@ -4,6 +4,13 @@ body {
   color: rgb(57, 57, 57);
 }
 
+.hp-link{
+   width: 330px;
+   line-height: 291px;
+   display: block;
+   text-align: center;
+}
+
 header p {
   margin-bottom: 1em;
 }
@@ -88,7 +95,8 @@ header p {
 
 .container-3 {
   z-index: 12;
-  background-image: url('/images/img1.jpg');
+  margin: 7px;
+
 }
 
 .container-3:hover {

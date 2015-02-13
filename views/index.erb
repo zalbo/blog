@@ -5,7 +5,10 @@
     <p>articoli presenti: <%= @articles.count %></p>
 
     <% @articles.each do |article| %>
-      <p><a href="/article/<%= article.title %>"><%= article.better_title %></a></p>
+    <div class="container _element container-3" style="background-image: url('/images/<%= article.title %>_thumb.jpg');">
+      <a class="hp-link" href="/article/<%= article.title %>"><%= article.better_title %></a>
+    </div>
+
     <%end%>
 
   </div>
@@ -21,5 +24,4 @@
     <div class="container _element container-8"></div>
     <div class="container _element container-9"></div>
     <div class="container container-10"></div>
-  </div>
--->
+  </div> -->

@@ -33,6 +33,7 @@ class Blog
   end
 
   def load_articles
+    #delete "." and ".."
     categories = Dir.entries("articles").select{|category| category != "." && category != ".."}
     categories.each do |category|
       articles = Dir.entries("articles/#{category}").select{|article| article != "." && article != ".."}
@@ -57,14 +58,20 @@ end
 
 get '/:category' do
   @articles = blog.all_by_category(params[:category])
-  if params[:category] == "3d"
-    @top_image = "3d"
-  end
+  if File.exist?('public/images/'+params[:category]+'.jpg')   # if don't find the dedicated file of category
+    @top_image = params[:category]                            # put in @top_image = "DSCF1245"
+  else                                                        #
+    @top_image = "DSCF1245"                                   #
+  end                                                         #
   erb :index
 end
 
 get '/article/:title' do
-  @article = blog.first_by_title(params[:title])
-  @top_image = params[:title]
+  @article = blog.first_by_title(params[:title])              # if don't find the dedicated file of article
+  if File.exist?('public/images/'+params[:title]+'.jpg')      # put in @top_image = "DSCF1245"
+    @top_image = params[:title]                               #
+  else                                                        #
+    @top_image = "DSCF1245"                                   #
+  end                                                         #
   erb :article
 end
